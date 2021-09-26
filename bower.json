@@ -1,0 +1,19 @@
+{
+  "name": "standard",
+  "description": "Standard start system for every project",
+  "main": "index.js",
+  "authors": [
+    "Glebanana"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

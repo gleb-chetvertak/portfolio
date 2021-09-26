@@ -1,0 +1,638 @@
+@import "app/libs/bootstrap/dist/bootstrap-grid"
+
+// =============================
+// Mixins
+// =============================
+
+@mixin font($fz, $lh, $ls, $fw, $tt, $col)
+	font-size: $fz
+	line-height: $lh
+	letter-spacing: $ls
+	font-weight: $fw
+	text-transform: $tt
+	color: $col
+
+// =============================
+// Global variables
+// =============================
+
+$whiteCol: #fff
+$lightCol: #666
+$darkCol: #333
+$blackCol: #000
+$lightBG: #f3f3f3
+$darkBg: #222
+
+// =============================
+// Modules
+// =============================
+
+h1
+	@include font(60px, 60px, 12px, 400, uppercase, $whiteCol)
+
+h2
+	@include font(30px, 30px, 6px, 400, uppercase, null)
+	padding-bottom: 11.56vh
+	text-align: center
+
+h3
+	@include font(30px, 30px, 3px, 300, null, $darkCol)
+
+h4
+	@include font(18px, 18px, 5.4px, 300, uppercase, $blackCol)
+
+p
+	@include font(18px, 1.67, 0.9px, 300, null, $darkCol)
+
+.sect
+	padding: 20vh 0
+
+.dmndWrapper
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	align-items: center
+
+.diamonds
+	position: relative
+
+.dmndOut
+	position: absolute
+	text-align: center
+	background-color: transparent
+	transform: rotate(-45deg)
+
+.dmndInn
+	background-color: transparent
+	transition: background-color .2s linear
+
+.dmndRev
+	transform: rotate(45deg)
+
+.btn
+	display: inline-block
+	padding: 25px 30px
+	border:
+		width: 1px
+		style: solid
+	@include font(12px, 12px, 2.4px, normal, uppercase, null)
+	text-decoration: none
+	transition: background-color .2s linear, color .2s linear
+
+
+// =============================
+// Styles
+// =============================
+
+*
+	font-family: "Lato", sans-serif
+
+// Header
+
+.pageHeader
+	height: 100vh
+	position: relative
+	background-image: url('../img/heading_bg.png')
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center 70%
+
+	&Container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.upperheader
+	padding-top: 7.67vh
+	justify-content: space-between
+	@include make-row()
+
+.dmndWrapper-header
+	@extend .dmndWrapper
+	padding-bottom: 4vh
+	justify-content: center
+	@include make-col-ready()
+	@include make-col(12)
+	@include media-breakpoint-up(ml)
+		padding-bottom: 0
+		justify-content: left
+		@include make-col(6)
+
+.diamonds-header
+	@extend .diamonds
+	width: 133px
+	height: 34px
+
+.dmndOut-header
+	@extend .dmndOut
+	width: 24px
+	height: 24px
+	border: 1px solid $whiteCol
+	top: 5px
+	line-height: 22px
+
+	&-1
+		@extend .dmndOut-header
+		left: 5px
+
+	&-2
+		@extend .dmndOut-header
+		left: 38px
+
+	&-3
+		@extend .dmndOut-header
+		left: 71px
+
+	&-4
+		@extend .dmndOut-header
+		left: 104px
+
+.dmndInn-header
+	@extend .dmndInn
+
+	&:hover
+		background-color: $whiteCol
+
+	&:hover .dmndRev-header
+		color: $blackCol
+
+.dmndRev-header
+	@extend .dmndRev
+	display: inline-block
+	height: 22px
+	line-height: 22px
+	color: $whiteCol
+	transition: color .3s ease-out
+
+.nav
+	display: flex
+	justify-content: center
+	align-items: center
+	text-align: right
+	@include make-col-ready()
+	@include make-col(12)
+	@include media-breakpoint-up(ml)
+		justify-content: flex-end
+		@include make-col(6)
+
+	&Item
+		margin-left: 4.14vw
+		@include font(12px, 12px, 3.6px, uppercase, 400, $whiteCol)
+		text-decoration: none
+		transition: color .2s linear
+
+		&:hover
+			color: $darkCol
+
+.middleHeader
+	margin-top: 25vh
+	text-align: center
+
+.underH1
+	margin-top: 5.56vh
+	@include font(26px, 26px, 5.2px, 300, uppercase, rgba(255, 255, 255, 0.3))
+
+.lowerHeader
+	display: block
+	margin-left: -50.18px
+	position: absolute
+	bottom: 5.67vh
+	left: 50%
+	transition: opacity .1s linear
+
+	&:hover
+		opacity: .7
+
+	&Link
+		display: flex
+		flex-direction: column
+		align-items: center
+		color: $whiteCol
+		text-decoration: none
+
+.scrollText
+	margin: 2.22vh 0 2.67vh
+	@include font(12px, 12px, 1.2px, 300, uppercase, $whiteCol)
+
+// Section 1
+
+.sect_1
+	@extend .sect
+	height: 100vh
+	background-color: $lightBG
+
+	&_container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.resume
+	display: flex
+	max-width: 530px
+	margin: 0 auto
+	flex-direction: column
+	align-items: center
+
+	&Headline
+		color: $lightCol
+
+	&Photo
+
+		&Bg
+			display: flex
+			width: 215px
+			height: 215px
+			border-radius: 50%
+			margin-bottom: 5.44vh
+			justify-content: center
+			align-items: center
+			background-color: #e7e7e7
+			overflow: hidden
+
+		&Img
+			width: 200px
+			height: 200px
+			border-radius: 50%
+
+	&Text
+		text-align: center
+
+.sect_2
+	@extend .sect
+	display: flex
+	flex-wrap: wrap
+
+.worksHeadline
+	align-self: center
+	flex-basis: 100%
+
+.example
+	position: relative
+	flex-basis: 33.33%
+	overflow: hidden
+
+	&Fog
+		display: block
+		position: absolute
+		// width: 32.95vw
+		// height: 32.95vw
+		background-color: $blackCol
+		opacity: 0
+		transition: opacity .2s linear
+		z-index: 100
+
+	&Img
+		display: block
+		width: 32.95vw
+		height: 32.95vw
+		background-repeat: no-repeat
+		background-size: contain
+		opacity: 1
+
+		&-1
+			@extend .exampleImg
+			background-image: url('../img/portfolio_floralbox.png')
+
+		&-2
+			@extend .exampleImg
+			background-image: url('../img/portfolio_agrohorizon.png')
+
+		&-3
+			@extend .exampleImg
+			background-image: url('../img/portfolio_vetdom.png')
+
+		&-4
+			@extend .exampleImg
+			background-image: url('../img/portfolio_melnitsy.png')
+
+		&-5
+			@extend .exampleImg
+			background-image: url('../img/portfolio_konstruktorservice.png')
+
+		&-6
+			@extend .exampleImg
+			background-image: url('../img/portfolio_studmed.png')
+
+	&Review
+		height: 10vw
+		padding: 10%
+		background-color: $whiteCol
+		transition: background-color .2s linear
+
+	&Link
+		display: block
+		padding-bottom: 2%
+		text-decoration: none
+
+	&Resume
+		color: $lightCol
+
+	&:hover .exampleFog
+		opacity: .5
+
+	&:hover .exampleReview
+		background-color: $blackCol
+
+	&:hover .exampleLinkText
+		color: $whiteCol
+
+.moreExamples
+	padding-top: 50px
+	flex-basis: 100%
+	text-align: center
+
+.btn-portfolio
+	@extend .btn
+	border-color: $lightCol
+	color: $darkCol
+
+	&:hover
+		border-color: $blackCol
+		color: $whiteCol
+		background-color: $blackCol
+
+.portfolioBtnText
+	display: inline-block
+	margin-right: 15px
+
+.sect_3
+	@extend .sect
+	background-color: $darkBg
+
+	&_container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.aboutHeadline
+	color: $whiteCol
+
+.skills
+	@include make-row()
+
+.skill
+	@include make-col-ready()
+	@include make-col(3)
+	text-align: center
+	color: $whiteCol
+
+.lvl
+
+	&Bg
+		display: flex
+		width: 172px
+		height: 172px
+		margin: 0 auto 35px
+		justify-content: center
+		align-items: center
+		background-repeat: no-repeat
+		background-size: contain
+
+		&-adaptive
+			@extend .lvlBg
+			background-image: url('../img/skill_1.png')
+
+		&-html_css
+			@extend .lvlBg
+			background-image: url('../img/skill_2.png')
+
+		&-js
+			@extend .lvlBg
+			background-image: url('../img/skill_3.png')
+
+		&-cms
+			@extend .lvlBg
+			background-image: url('../img/skill_4.png')
+
+	&Numb
+		@include font(36px, 36px, normal, normal, null, $whiteCol)
+
+	&Title
+		@include font(14px, 14px, 2.8px, null, uppercase, $whiteCol)
+
+.sect_4
+	@extend .sect
+	background-color: $lightBG
+
+	&_container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.branches
+	@include make-row()
+
+.branch
+	@include make-col-ready()
+	@include make-col(4)
+	margin: auto
+	text-align: center
+
+	&-1
+		@extend .branch
+
+	&-2
+		@extend .branch
+
+	&-3
+		@extend .branch
+
+	&Img
+		display: inline-block
+		width: 114px
+		height: 114px
+
+	&Headline
+		padding: 57px 0 37px
+
+.sect_5
+	@extend .sect
+	background-color: $whiteCol
+
+	&_container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.hobbiesHeadline
+	color: $darkCol
+
+.diamonds-hobbies
+	@extend .diamonds
+	width: 100%
+	height: 275px
+
+.dmndOut-hobbies
+	@extend .dmndOut
+	width: 194px
+	height: 194px
+	border: 1px solid $darkCol
+	top: 40px
+	line-height: 192px
+
+	&-1
+		@extend .dmndOut-hobbies
+		left: 40px
+
+	&-2
+		@extend .dmndOut-hobbies
+		left: 40px + 273.5px
+
+	&-3
+		@extend .dmndOut-hobbies
+		left: 40px + 2 * 273.5px
+
+	&-4
+		@extend .dmndOut-hobbies
+		left: 40px + 3 * 273.5px
+
+.dmndInn-hobbies
+	@extend .dmndInn
+
+.dmndRev-hobbies
+	@extend .dmndRev
+	display: inline-block
+	height: 192.45px
+	padding-top: 25%
+	line-height: 192.45px
+	color: $darkCol
+
+.hobbiesImg
+	display: inline-block
+	width: 100px
+	height: 100px
+
+.sect_6
+	@extend .sect
+	height: 75.89vh
+	background-image: url("../img/footer_bg.png")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center center
+
+	&_container
+		@include make-container()
+		@include media-breakpoint-up(xs)
+			@include make-container-max-widths()
+
+.contact
+
+	&Headline
+		color: $whiteCol
+
+	&Row
+		@include make-row()
+
+	&Left
+		@include make-col-ready()
+		@include make-col(6)
+		padding-right: 35px
+		position: relative
+		text-align: right
+
+	&Ask
+		@include font(18px, normal, normal, 300, null, $whiteCol)
+
+	@at-root
+
+		.btn-contact
+			@extend .btn
+			border-color: $whiteCol
+			position: absolute
+			bottom: 0
+			right: 35px
+			color: $whiteCol
+
+			&:hover
+				border-color: $blackCol
+				color: $whiteCol
+				background-color: $blackCol
+
+	&BtnText
+		@extend .portfolioBtnText
+
+	&Right
+		@include make-col-ready()
+		@include make-col(6)
+		padding-left: 35px
+
+	&Variant
+		display: flex
+		align-items: center
+
+		&-middle
+			@extend .contactVariant
+			margin: 3.67vh 0
+
+		&Icon
+			width: 20px
+			height: 20px
+			margin-right: 3.33vh
+			text-align: center
+
+		&Text
+			@include font(14px, 14px, 5.6px, 300, uppercase, $whiteCol)
+
+.pageFooter
+	height: 24.11vh
+	background-color: $whiteCol
+
+.footer_container
+	@include make-container()
+	@include media-breakpoint-up(xs)
+		@include make-container-max-widths()
+	padding-top: 7vh
+
+.diamonds-footer
+	@extend .diamonds
+	width: 305px
+	height: 77px
+	margin: auto
+
+.dmndOut-footer
+	@extend .dmndOut
+	width: 55px
+	height: 55px
+	border: 1px solid $darkCol
+	top: 11px
+	line-height: 53px
+
+	&-1
+		@extend .dmndOut-footer
+		left: 11px
+
+	&-2
+		@extend .dmndOut-footer
+		left: 11px + 77px
+
+	&-3
+		@extend .dmndOut-footer
+		left: 11px + 2 * 77px
+
+	&-4
+		@extend .dmndOut-footer
+		left: 11px + 3 * 77px
+
+.dmndInn-footer
+	@extend .dmndInn
+
+	&:hover
+		background-color: $darkCol
+
+	&:hover .dmndRev-footer
+		color: $whiteCol
+
+.dmndRev-footer
+	@extend .dmndRev
+	display: inline-block
+	height: 53px
+	line-height: 53px
+	color: $darkCol
+	transition: color .3s ease-out
+
+.copyright
+	padding-top: 3vh
+	text-align: center
+	@include font(12px, 12px, normal, normal, uppercase, $darkCol)

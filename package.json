@@ -1,0 +1,15 @@
+{
+  "name": "standard",
+  "version": "1.0.0",
+  "description": "Standard start system for every project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Glebanana",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-group-css-media-queries": "^1.2.0"
+  }
+}
